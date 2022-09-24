@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int compare(const void* a, const void* b) {
-	int num1 = *(int*)a;
+int compare(const void* a, const void* b) {int num1 = *(int*)a;
 	int num2 = *(int*)b;
 
 	if (num1 < num2)
@@ -19,20 +18,20 @@ int compare(const void* a, const void* b) {
 
 
 int bray(int data[], int a, int size) {
-	int front, rear, pivot;
-	front = 0;
-	rear = size - 1;
+	int low, high, mid;
+	low = 0;
+	high = size - 1;
 	while (1) {
-		pivot = (front + rear) / 2;
-		if (data[pivot] == a) return 1;
-		if (data[front] == a) return 1;
-		if (data[rear] == a) return 1;
+		mid = (low + high) / 2;
+		if (data[mid] == a) return 1;
+		if (data[low] == a) return 1;
+		if (data[high] == a) return 1;
 
-		if (data[pivot] < a)
-			front = pivot + 1;
+		if (data[mid] < a)
+			low = mid + 1;
 		else
-			rear = pivot - 1;
-		if (front >= rear)
+			high = mid - 1;
+		if (low >= high)
 			return 0;
 	}
 }
