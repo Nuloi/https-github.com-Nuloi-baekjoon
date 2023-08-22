@@ -1,10 +1,7 @@
-#define _CRT_SECURE_NO_WARNINGS    
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include <math.h>
 
-#define MAX_STACK_SIZE 10000
+#define MAX_STACK_SIZE 10001
 typedef int element;
 element stack[MAX_STACK_SIZE];
 int tops = -1;
@@ -24,31 +21,22 @@ void push(element item)
     stack[++tops] = item;
 }
 
-element pop()
-{
-    if (tops == -1) {
-        return -1;
-    }
-    else return stack[tops--];
+element pop() {
+    return (tops == -1) ? -1 : stack[tops--];
 }
-element size()
-{
-    return tops+1;
+
+element size() {
+    return tops + 1;
 }
-element empty()
-{
-    if (tops==-1) {
-        return 1;
-    }
-    else return 0;
+
+element empty() {
+    return (tops == -1) ? 1 : 0;
 }
-element top()
-{
-    if (tops == -1) {
-        return -1;
-    }
-    return stack[tops];
+
+element top() {
+    return (tops == -1) ? -1 : stack[tops];
 }
+
 int main() {
     int z;
     scanf("%d", &z);
